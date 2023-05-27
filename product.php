@@ -18,4 +18,24 @@ class Product extends Database
         $this->init();
         $this->conn->query($sql);
     }
-} 
+
+    public function insert(array $param)
+    {
+        $brand = $param['brand'];
+        $price = $param['price'];
+        $description = $param['description'];
+
+        $insert = "INSERT INTO $this->tblName values(null,'$brand','$price','$description')";
+
+        return $this->conn->query($insert);
+    }
+
+    public function getAll()
+    {
+        $all = "SELECT * FROM $this->tblName order by id desc";
+
+        return $this->conn->query($all);
+    }
+}
+
+ 
