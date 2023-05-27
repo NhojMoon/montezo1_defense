@@ -12,8 +12,3 @@ class Database
         $this->conn = new mysqli("localhost", "root", "", $this->db);
     }
 }
-
-$db = new Database();
-$db->init();
-
-// var_dump($db);

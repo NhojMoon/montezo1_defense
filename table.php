@@ -10,7 +10,7 @@ class Product extends Database
     {
         $sql = "CREATE TABLE IF NOT EXISTS $this->tblName(
             id int auto_increment primary key,
-            brand varchar(255),
+            brand_name varchar(255),
             price float(5),
             description varchar(255)
             )";
