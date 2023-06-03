@@ -37,5 +37,3 @@ class Product extends Database
         return $this->conn->query($all);
     }
 }
-
- 
