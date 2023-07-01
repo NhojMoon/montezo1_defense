@@ -15,6 +15,7 @@ class Product extends Data implements Functions
             id int primary key auto_increment,
             core_items varchar(199) not null,
             accessories varchar(199) not null,
+            specifications varchar(199) not null,
             package varchar(199) not null,
             brands varchar(199),
             warranty varchar(199)
@@ -55,6 +56,13 @@ class Product extends Data implements Functions
             ]);
         }
 
+        if(!isset($params['specifications']) || empty($params['specifications'])){
+            return json_encode([
+                "code" => 422,
+                "message" => 'Specifications is required',
+            ]);
+        }
+
         if(!isset($params['package']) || empty($params['package'])){
             return json_encode([
                 "code" => 422,
@@ -78,12 +86,13 @@ class Product extends Data implements Functions
 
         $core_items = $params['core_items'];
         $accessories = $params['accessories'];
+        $specifications = $params['specifications'];
         $package = $params['package'];
         $brands = $params['brands'];
         $warranty = $params['warranty'];
 
-        $sql = "INSERT INTO products(core_items, accessories, package, brands, warranty) 
-                VALUES('$core_items', '$accessories', '$package', '$brands', '$warranty')";
+        $sql = "INSERT INTO products(core_items, accessories, specifications, package, brands, warranty) 
+                VALUES('$core_items', '$accessories', '$specifications', '$package', '$brands', '$warranty')";
 
         $isAdded = $this->conn->query($sql);
 
@@ -123,6 +132,13 @@ class Product extends Data implements Functions
             ]);
         }
 
+        if(!isset($params['specifications']) || empty($params['specifications'])){
+            return json_encode([
+                "code" => 422,
+                "message" => 'Specifications is required',
+            ]);
+        }
+
         if(!isset($params['package']) || empty($params['package'])){
             return json_encode([
                 "code" => 422,
@@ -154,6 +170,7 @@ class Product extends Data implements Functions
         $id = $params['id'];
         $core_items = $params['core_items'];
         $accessories = $params['accessories'];
+        $specifications = $params['specifications'];
         $package = $params['package'];
         $brands = $params['brands'];
         $warranty = $params['warranty'];
