@@ -249,12 +249,12 @@ class Product extends Data implements Functions
             return json_encode($response);
         }
 
-        //id from url
+        //to look id from url
         $id = $params['id'];
 
         $data = $this->conn->query("SELECT * FROM products where id = '$id'");
 
-        //check if no data has been retrieve
+        //it is to check if no data has been retrieve
         if($data->num_rows == 0) {
             $response = [
                 "code" => 404,
@@ -264,7 +264,6 @@ class Product extends Data implements Functions
             return json_encode($response);
         }
 
-        //return to json data
         return json_encode($data->fetch_assoc());
     }
 
