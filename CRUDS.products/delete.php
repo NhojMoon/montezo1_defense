@@ -10,7 +10,7 @@ $product = new Product();
 // connect to database and create table
 $product->createTable();
 
-// call getAll method
+// call delete method
 echo $product->delete($_GET);
 
 ?>

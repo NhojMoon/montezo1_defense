@@ -13,5 +13,4 @@ $product->createTable();
 // call create method
 echo $product->create($_POST);
 
-
 ?>

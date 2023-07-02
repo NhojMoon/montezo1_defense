@@ -10,7 +10,7 @@ $product = new Product();
 // connect to database and create table
 $product->createTable();
 
-// call getAll method
+// call search method
 echo $product->search($_GET);
 
 ?>

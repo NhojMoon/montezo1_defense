@@ -175,7 +175,7 @@ class Product extends Data implements Functions
         $brands = $params['brands'];
         $warranty = $params['warranty'];
 
-        $sql = "UPDATE products SET core_items = '$core_items', accessories = '$accessories', package = '$package', brands ='$brands', warranty = '$warranty'
+        $sql = "UPDATE products SET core_items = '$core_items', accessories = '$accessories', specifications = '$specifications' package = '$package', brands ='$brands', warranty = '$warranty'
                 where id = '$id'";
         
         $isUpdated = $this->conn->query($sql);
